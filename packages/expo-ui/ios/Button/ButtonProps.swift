@@ -63,7 +63,7 @@ internal enum ButtonVariant: String, Enumerable {
   case glassProminent
 }
 
-final class ButtonProps: UIBaseViewProps, Observable {
+public final class ButtonProps: UIBaseViewProps, Observable {
   @Field var text: String?
   @Field var systemImage: String?
   @Field var color: Color?
