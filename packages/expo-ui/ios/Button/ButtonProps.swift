@@ -26,7 +26,7 @@ internal enum ButtonControlSize: String, Enumerable {
   case regular
   case large
   case extraLarge
-  
+
   func toNativeControlSize() -> SwiftUI.ControlSize {
     switch self {
     case .mini:
@@ -73,4 +73,3 @@ final class ButtonProps: UIBaseViewProps, Observable {
   @Field var disabled: Bool = false
   var onButtonPressed = EventDispatcher()
 }
-
