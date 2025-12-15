@@ -30,26 +30,26 @@ struct SliderView: ExpoSwiftUI.View {
   }
 
   var body: some View {
-    #if !os(tvOS)
+#if !os(tvOS)
     Slider(value: $value, in: props.min...props.max, step: getStep(props.min, props.max, props.steps) )
-    .onChange(of: value, perform: { newValue in
-      if props.value == newValue {
-        return
-      }
-      // TODO: onChange(of: Float) action tried to update multiple times per frame.
-      props.onValueChanged([
-        "value": newValue
-      ])
-    })
-    .tint(props.color)
-    .onReceive(props.value.publisher, perform: { newValue in
-      var sliderValue = newValue
-      sliderValue = max(sliderValue, props.min)
-      sliderValue = min(sliderValue, props.max)
-      value = sliderValue
-    })
-    #else
+      .onChange(of: value, perform: { newValue in
+        if props.value == newValue {
+          return
+        }
+        // TODO: onChange(of: Float) action tried to update multiple times per frame.
+        props.onValueChanged([
+          "value": newValue
+        ])
+      })
+      .tint(props.color)
+      .onReceive(props.value.publisher, perform: { newValue in
+        var sliderValue = newValue
+        sliderValue = max(sliderValue, props.min)
+        sliderValue = min(sliderValue, props.max)
+        value = sliderValue
+      })
+#else
     Text("Slider is not supported on tvOS")
-    #endif
+#endif
   }
 }
