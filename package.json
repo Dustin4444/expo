@@ -33,7 +33,7 @@
     "@types/babel__traverse": "^7.20.7"
   },
   "dependencies": {
-    "eslint": "^8.57.1",
+    "eslint": "^9.0.0",
     "expo-asset": "workspace:*",
     "expo-modules-core": "workspace:*",
     "jest-expo": "workspace:*",
